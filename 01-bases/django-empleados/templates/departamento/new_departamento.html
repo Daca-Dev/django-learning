@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+  <title>Crear departmento</title>
+{% endblock head %}
+
+
+{% block content %}
+<h1>Nuevo departamento</h1>
+<hr />
+<form method="POST">
+  {% csrf_token %}
+  <h3>Información del empleado</h3>
+  <p>{{ form.nombre }}</p>
+  <p>{{ form.apellido }}</p>
+  <h3>Información del departamento</h3>
+  <p>{{ form.departamento }}</p>
+  <p>{{ form.short_name }}</p>
+  <button class="success button" type="submit">Crear</button>
+</form>
+{% endblock content %}
+  
+  

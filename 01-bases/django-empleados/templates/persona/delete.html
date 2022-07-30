@@ -1,0 +1,10 @@
+<h1>Prueba de DeleteView</h1>
+<hr>
+<p>Quieres eliminar el usuario {{ object }}?</p>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <button type="submit">Confirmar</button>
+
+</form>

@@ -1,0 +1,9 @@
+<h1>Update View prueba</h1>
+<hr>
+<p>Modificar datos del empleado</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Actualizar</button>
+</form>

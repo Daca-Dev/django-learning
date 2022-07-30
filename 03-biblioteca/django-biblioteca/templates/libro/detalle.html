@@ -1,0 +1,22 @@
+<h1>Detalle del libro</h1>
+<hr>
+
+<p>{{ object.id }}</p>
+<p>{{ object.categoria }}</p>
+<p>{{ object.titulo }}</p>
+<p>{{ object.fecha }}</p>
+
+<p>-----------may to may-----------------</p>
+<ul>
+
+    {% for i in object.autores.all %}
+        <li>{{ i }}</li>
+    {% endfor %}
+</ul>
+
+<p>---- agregar autores ----</p>
+
+<form method="POST">
+    <input type="text" placeholder="Agregar autor">
+    <button type="submit">Agregar</button>
+</form>

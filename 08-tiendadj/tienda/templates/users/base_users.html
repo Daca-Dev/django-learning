@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block js %}
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+    
+    const login = () => {
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCxvw-MK-GkUbtbug47NX3N95Ht_rlyLHs",
+            authDomain: "django-pro-bab3a.firebaseapp.com",
+            projectId: "django-pro-bab3a",
+            storageBucket: "django-pro-bab3a.appspot.com",
+            messagingSenderId: "318107567202",
+            appId: "1:318107567202:web:be9ffac215f6cb2f8e7d3b"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    
+        const provider = new GoogleAuthProvider();
+    
+        const auth = getAuth();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.email;
+                    // The AuthCredential type that was used.
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    // ...
+                });
+    }
+
+</script>
+
+{% endblock js %}

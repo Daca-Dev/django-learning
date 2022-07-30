@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+  <title>Registrar usuario</title>
+{% endblock head %}
+    
+
+
+{% block content %}
+  <h1>Registrar usuario</h1>
+  <hr>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear</button>
+  </form>
+{% endblock content %}
+    

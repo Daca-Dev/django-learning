@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Confirmación de registro</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Confirmar</button>
+    </form>
+{% endblock content %}
+    
